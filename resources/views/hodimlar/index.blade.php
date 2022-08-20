@@ -34,9 +34,15 @@
                             $$$
                         </td>
                         <td class="py-4 px-6">
-                            <a href="#" id="delbtn" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default</a>
-                            {{-- tahrir qilish --}}
-                    
+                            <form action="{{route('hodim.destroy',['hodim'=>$hodims->id])}}" method="POST" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <button id="delbtn" class="inline w-full md:w-auto text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" >
+                                    o'chirish
+                                </button>
+                            </form>
+                        
+                            
                             <button class=" w-full md:w-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="medium-modal">
                                 tahrir qilish
                             </button>
@@ -78,7 +84,11 @@
                     </tr>
           
                @empty
-                   <h2 class="bg-blend-color">topilmadi!</h2>
+                     <tr>
+                          <td colspan="5" class="text-center text-3xl">
+                            <h1>Hodimlar mavjud emas</h1>
+                          </td>
+                     </tr>
                @endforelse                                  
             </tbody>
         </table>
@@ -92,12 +102,10 @@
     <script>
       $(function () {
         $('#delbtn').click(function () {
-            if (confirm('Are you sure you want to delete this?')) {
-                return true;
-            }
-            return false;
+            return confirm('Are you sure?');
+            });
+
         });
-      })
     </script>
     
 @endsection

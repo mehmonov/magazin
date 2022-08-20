@@ -81,6 +81,16 @@ class HodimController extends Controller
      */
     public function destroy(Hodim $hodim)
     {
-        //
+      
+        $hodim->delete();
+        return redirect()->route('hodim.index');
     }
+    public function delete($id)
+    {
+        dd($id);
+        // $hodim = Hodim::find($id);
+        // $hodim->delete();
+        // return redirect()->route('hodim.index');
+    }
+   
 }

@@ -17,3 +17,4 @@ use App\Http\Controllers\HodimController;
     
 Route::get('/',[HodimController::class,'index'])->name('home');
 Route::resource('hodim', HodimController::class);
+// Route::get('/hodim/{id}',[HodimController::class,'delete'])->name('hodim.delete');
