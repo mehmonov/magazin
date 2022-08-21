@@ -36,7 +36,19 @@ class HodimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hodim = new Hodim();
+        $hodim->fish = $request->fish;
+        $hodim->role_id = $request->role_id;
+        $hodim->phone1 = $request->phone1;
+        $hodim->phone2 = $request->phone2;
+       $hodim->t_sana = $request->t_sana;
+       $hodim->description = $request->description;
+       $hodim->img = $request->rasm;
+       $hodim->password = $request->password;
+
+        $hodim->save();
+        return redirect()->route('hodim.index');
+        
     }
 
     /**
@@ -70,7 +82,21 @@ class HodimController extends Controller
      */
     public function update(Request $request, Hodim $hodim)
     {
-        //
+        $hodim = Hodim::find($request->id);
+        $hodim->fish = $request->fish;
+        if ($request->role_id != null) {
+            $hodim->role_id = $request->role_id;
+        }
+        
+        $hodim->phone1 = $request->phone1;
+        $hodim->phone2 = $request->phone2;
+         $hodim->t_sana = $request->t_sana;
+            $hodim->description = $request->description;
+            $hodim->img = $request->rasm;
+            $hodim->password = $request->password;
+            $hodim->save();
+            return redirect()->route('hodim.index');
+
     }
 
     /**

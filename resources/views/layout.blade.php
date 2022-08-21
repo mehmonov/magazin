@@ -7,6 +7,7 @@
     <title>Document</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <link href='https://css.gg/add-r.css' rel='stylesheet'>
 </head>
 <body>
     <header>
