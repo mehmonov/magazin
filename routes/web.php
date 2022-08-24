@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HodimController;
+use App\Http\Controllers\MahsulotController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,7 @@ use App\Http\Controllers\HodimController;
     
 Route::get('/',[HodimController::class,'index'])->name('home');
 Route::resource('hodim', HodimController::class);
+Route::resource('mahsulot', MahsulotController::class);
+Route::get('getProductData',[MahsulotController::class, 'getProductData'])->name('getProductData');
+
 // Route::get('/hodim/{id}',[HodimController::class,'delete'])->name('hodim.delete');
